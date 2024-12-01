@@ -1,0 +1,281 @@
+body{
+  overflow-x: hidden;
+}
+#div1 input{
+  width: 60%;
+}
+footer.active {
+  transform: translateX(0);
+}
+nav{
+  height: 100px;
+}
+#df{
+  margin-top: 20px;
+  row-gap: 30px;
+  column-gap: 8vw;
+  flex-wrap: wrap;
+}
+#d1,#d2,#d3,#d4,#d5{
+  margin-top: 0px;
+  font-size: 16px;
+}
+#ch{
+  margin-top: 50px;
+}
+#s2 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+#navheading{
+  font-size: 24px;
+}
+#center {
+  background-color: rgb(150, 214, 232);
+  height: 45vh;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20vh;
+  filter: blur(-3px);
+  backdrop-filter: blur(-3px);
+}
+#exit {
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+}
+#exit:hover {
+  filter: invert(0.1);
+}
+
+.loading-dots::after {
+  content: ".";
+}
+
+.loading-dots::before {
+  content: "";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+#div2 {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+#ws,#wa,#wc{
+  font-size: 16px;
+  margin-top: 10px;
+}
+@keyframes dots {
+  0%,
+  20% {
+    content: "";
+  }
+  40% {
+    content: ".";
+  }
+  60% {
+    content: "..";
+  }
+  80%,
+  100% {
+    content: "...";
+  }
+}
+#div1{
+  margin-top: 10px;
+}
+.time-select {
+  cursor: pointer;
+  background-color: rgb(219 234 254);
+  border: 1px solid rgb(147 197 253);
+  color: rgb(30 58 138);
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 0.75rem;
+}
+
+.time-select:focus {
+  outline: none;
+  border-color: rgb(59 130 246);
+  ring: 2px;
+  ring-color: rgb(59 130 246);
+}
+
+.time-select option {
+  background-color: rgba(0, 223, 253, 0);
+  padding: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.time-select option:hover {
+  background-color: rgba(239, 246, 255, 0);
+}
+.time-select::-webkit-scrollbar {
+  width: 8px;
+}
+.time-select::-webkit-scrollbar-track {
+  background: #f1f1f100;
+  border-radius: 4px;
+}
+
+.time-select::-webkit-scrollbar-thumb {
+  background: #88888800;
+  border-radius: 4px;
+}
+
+.time-select::-webkit-scrollbar-thumb:hover {
+  background: #304769;
+}
+#lc{
+  margin-top: 150px;
+}
+#temp, #feelslike, #humi, #ozo, #atmospressure {
+  font-size: 50px;
+}
+#feelslike, #humi, #ozo, #atmospressure {
+  font-size: 32px;
+}
+#df2{
+  margin-top: 40px;
+}
+@media screen and (min-width: 1000px) {
+  nav,#img{
+    height: 100px;
+  }
+  #menu{
+    height: 90px;
+  }
+  #navheading{
+    font-size: 32px;
+  }
+  #div1{
+    flex-direction: column;
+    font-size: 18px;
+  }
+  #div1 input{
+    width: 80%;
+  }
+  #city{
+    width: 60vw;
+  }
+  #div2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    gap: 20px;
+    font-size: 18px;
+  }
+  #getbtn, #btn2 {
+    padding: 6px 12px;
+  }
+  #ch{
+    margin-top: 70px;
+    font-size: 32px;
+  }
+  footer{
+    width: 40vw;
+  }
+  #d1,#d2,#d3,#d4,#d5{
+    font-size: 20px;
+  }
+  #ws,#wa,#wc{
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  #df{
+    margin-top: 10px;
+  }
+  #temp {
+    font-size: 70px;
+  }
+  #feelslike, #humi, #ozo, #atmospressure {
+    font-size: 50px;
+  }
+  #sum {
+    font-size: 42px;
+  }
+  #lt{
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  #lg{
+    font-size: 20px;
+    margin-top: 0px;
+  }
+  #lc{
+    margin-top: 200px;
+  }
+}
+@media screen and (max-width: 450px) {
+  nav {
+    display: flex;
+    height: 80px;
+  }
+  #img {
+    height: 50px;
+    margin-left: 2vw;
+  }
+  nav h2 {
+    font-size: 24px;
+  }
+  #menu {
+    height: 60px;
+  }
+  footer {
+    width: 100vw;
+  }
+  #div1{
+    width: 90%;
+  }
+  #city{
+    width: 52vw;
+  }
+  #div2{
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 20px;
+  }
+  #df{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  #df2{
+    display: flex;
+    justify-content: space-between;
+  }
+  #lt,#lg{
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  #wind{
+    font-size: 18px;
+  }
+  #ws,#wa,#wc{
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  #df2{
+    margin-top: 100px;
+  }
+  #ch{
+    margin-top: 100px;
+  }
+  
+}

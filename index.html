@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Weather app</title>
+  <meta name="description"
+    content="Stay ahead of the weather with our intuitive weather app, designed to provide real-time updates and forecasts at your fingertips. Whether you're planning a weekend getaway or simply heading out for a stroll, get accurate and localized weather information tailored to your location. Enjoy features like radar maps, severe weather alerts, and customizable notifications to ensure you're always prepared for whatever the skies might bring!">
+  <link rel="stylesheet" href="src/output.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="icon.jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body
+  class="m-0 p-0 min-h-screen bg-gradient-to-br from-blue-200 via-[rgb(112,149,194)] to-[rgb(76,116,166)] min-h-[100vh] w-full">
+  <nav class=" bg-blue-200 w-full flex items-center gap-6 relative">
+    <img class="h-20 mix-blend-multiply ml-5" src="logo.jpeg" id="img" alt="logo">
+    <h2 class="font-semibold" id="navheading">My Weather App</h2>
+    <img class="h-20 absolute right-0 z-10 cursor-pointer" id="menu" src="menu.png" alt="menubar">
+  </nav>
+  <section class=" h-auto w-full">
+    <div class="w-[80%] m-auto" id="div1">
+      <span>Enter your city : </span><input type="text" name="city" id="city" placeholder="city"
+        class="border-2 border-gray-300 rounded-md p-1 px-5 focus:outline-none focus:border-blue-500 mt-4">
+      <div id="div2">
+        <button
+          class="bg-blue-800 hover:bg-blue-900 rounded-md font-medium text-white py-[6px] px-3 transition duration-200 ease-in-out hover:shadow-2xl"
+          id="getbtn">Get
+          Weather</button>
+        <button
+          class=" bg-blue-800 hover:bg-blue-900 rounded-md font-medium text-white py-[6px] px-3 ml-2 transition duration-200 ease-in-out hover:shadow-2xl"
+          id="btn2">Advance Search</button>
+      </div>
+    </div>
+  </section>
+  <div class="hidden" id="s2"></div>
+  <div id="center" class="flex flex-col items-center hidden">
+    <div class=" absolute top-0 right-0 "> <img src="exit.png" alt="exit" class=" mix-blend-multiply" id="exit"></div>
+    <h2 class="font-medium text-2xl mt-7">Advanced Search:</h2>
+    <div class="flex flex-col gap-4 ">
+      <div class="flex items-center gap-3 mt-5">
+        <label class="text-lg">Latitude &nbsp;:&nbsp;&nbsp;</label>
+        <input required type="text" name="latitude" id="lat"
+          class="border-2 border-gray-300 rounded-md p-1 px-3 focus:outline-none focus:border-blue-500">
+      </div>
+      <div class="flex items-center gap-3 mt-5">
+        <label class="text-lg">Longitude :</label>
+        <input required type="text" name="longitude" id="long"
+          class="border-2 border-gray-300 rounded-md p-1 px-3 focus:outline-none focus:border-blue-500">
+      </div>
+    </div>
+    <div id="displaymessage" class="mt-10 font-medium text-sm">Enter Values</div>
+    <div
+      class="bg-blue-800 h7 text-lg text-white font-medium rounded-md p-1 px-10 mt-4 cursor-pointer hover:bg-blue-900 transition-colors duration-200 ease-in-out"
+      id="submit2">Sumit</div>
+  </div>
+  <main class="w-full">
+    <div class="w-[80%] m-auto">
+      <div class="flex items-end" id="ch">
+        <p class="font-medium "> &#127757; <span id="cityHeading"><span
+              class="loading-dots"></span></span></p>
+        <div class="absolute right-10">
+          <select name="date" id="date" class="time-select">
+            <option value="0">00am</option>
+            <option value="1">01am</option>
+            <option value="2">02am</option>
+            <option value="3">03am</option>
+            <option value="4">04am</option>
+            <option value="5">05am</option>
+            <option value="6">06am</option>
+            <option value="7">07am</option>
+            <option value="8">08am</option>
+            <option value="9">09am</option>
+            <option value="10">10am</option>
+            <option value="11">11am</option>
+            <option value="12">12pm</option>
+            <option value="13">1pm</option>
+            <option value="14">2pm</option>
+            <option value="15">3pm</option>
+            <option value="16">4pm</option>
+            <option value="17">5pm</option>
+            <option value="18">6pm</option>
+            <option value="19">7pm</option>
+            <option value="20">8pm</option>
+            <option value="21">9pm</option>
+            <option value="22">10pm</option>
+            <option value="23">11pm</option>
+          </select>
+        </div>
+      </div>
+      <div id="df" class="flex items-end w-[97%] xl:w-[80%] m-auto ">
+        <div>
+          <p class="font-thin text-slate-700" id="temp"><span class="loading-dots"></span></p>
+          <p class="text-base " id="d1">Temperature</p>
+        </div>
+        <div>
+          <p class="font-thin text-slate-700" id="feelslike"><span class="loading-dots"></span></p>
+          <p class="text-base mt-3" id="d2">Feels Like</p>
+        </div>
+        <div>
+          <p class="font-thin text-slate-700" id="humi"><span class="loading-dots"></span></p>
+          <p class="text-base mt-3" id="d3">Humidity</p>
+        </div>
+        <div>
+          <p class="font-thin text-slate-700" id="ozo"><span class="loading-dots"></span></p>
+          <p class="text-base mt-3" id="d4">Ozone</p>
+        </div>
+        <div>
+          <p class="font-thin text-slate-700" id="atmospressure"><span class="loading-dots"></span></p>
+          <p class="text-base mt-3" id="d5">Atmospheric Pressure</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-start" id="df2">
+        <div class="text-base min-w-[40%]">
+          <p class="text-xl" id="sum"><span class="loading-dots"></span></p>
+          <p class="mt-1 text-lg" id="lt">Latitude : <span class="loading-dots"></span></p>
+          <p class="mt-1 text-lg" id="lg" >Longitude : <span class="loading-dots"></span></p>
+        </div>
+        <div class=" min-w-[40%]">
+          <p class="text-2xl" id="wind">Wind</p>
+          <p id="ws">Speed : <span class="loading-dots"></span></p>
+          <p id="wa">Angle : <span class="loading-dots"></span></p>
+          <p id="wc">Wind chill : <span class="loading-dots"></span></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    class="h-[100vh] bg-[rgb(46,62,129)] absolute right-0 top-0 translate-x-[100%] transition-all ease-in-out duration-[0.3s] active:translate-x-0 text-xl">
+    <div>
+      <div id="lc" class="text-4xl font-semibold ml-10 text-white">
+        Let's Connect
+      </div>
+      <div class=" w-auto ml-10 mt-10 flex items-center gap-3">
+        <a href="https://www.instagram.com/arslan_mushtaq7/" target="_blank"
+          class="cursor-pointer text-white font-medium mt-4"><i class="fab fa-instagram text-2xl"></i> &nbsp; Instagram</a>
+      </div>
+      <div class="h-[1px] w-60 bg-[rgb(28,24,78)] ml-10 mt-3"></div>
+      <div class=" w-auto ml-10 mt-2 flex items-center gap-3">
+        <a href="https://www.linkedin.com/in/muhammad-arslan-06759b281/" target="_blank"
+          class="cursor-pointer text-white font-medium mt-4"><i class="fab fa-linkedin text-2xl"></i> &nbsp; Linkedin</a>
+      </div>
+      <div class="h-[1px] w-60 bg-[rgb(28,24,78)] ml-10 mt-3"></div>
+      <div class="w-auto ml-10 mt-2 flex items-center gap-3">
+        <a href="https://wa.me/923298169375" target="_blank" target="_blank"
+          class="cursor-pointer text-white font-medium mt-4"><i class="fab fa-whatsapp text-2xl"></i> &nbsp; WhatsApp</a>
+      </div>
+      <div class="h-[1px] w-60 bg-[rgb(28,24,78)] ml-10 mt-3"></div>
+      <div class="w-auto ml-10 mt-2 flex items-center gap-3">
+        <a href="https://github.com/muhammad-arslan7" target="_blank" class="cursor-pointer text-white font-medium mt-4"><i
+            class="fab fa-github text-2xl"></i> &nbsp;Github</a>
+      </div>
+      <div class="h-[1px] w-60 bg-[rgb(28,24,78)] ml-10 mt-3"></div>
+      <div class="w-auto ml-10 mt-2 flex items-center gap-3">
+        <a href="mailto:marslanmushtaq7@gmail.com" class="cursor-pointer text-white font-medium mt-4"><i
+            class="far fa-envelope text-2xl"></i> &nbsp;Email</a>
+      </div>
+
+
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="cities.js"></script>
+</body>
+
+</html>
