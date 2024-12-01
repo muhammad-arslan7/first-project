@@ -285,5 +285,6 @@ nav{
   }
   #lat,#long{
     width: 65%;
+    margin-left: 5px;
   }
 }
