@@ -283,5 +283,7 @@ nav{
     height: 100vh;
     overflow: hidden;
   }
-  
+  #lat,#long{
+    width: 60%;
+  }
 }
